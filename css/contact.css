@@ -1,0 +1,98 @@
+main {
+    img {
+        padding: var(--padding-small);
+        border: calc(var(--padding-xsmall) / 4)  solid var(--secondary-background);
+        border-radius: var(--padding-small);
+
+        margin-bottom: var(--padding-medium);
+
+        max-height: calc(var(--padding-large) * 12);
+        object-fit: cover;
+    }
+
+    address{
+        font-style: normal;
+
+        p:not(:first-of-type) {
+            margin-bottom: var(--padding-medium);
+
+            a {
+                font-weight: 600;
+                text-decoration: none;
+                color: var(--neutral-text);
+            }
+        }
+    }
+
+    fieldset{
+        border-radius: var(--padding-small);
+        padding: var(--padding-small);
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: var(--padding-medium);
+
+            div{
+                display: flex;
+                flex-direction: column;
+
+                input, textarea {
+                    border: calc(var(--padding-xsmall) / 4)  solid var(--secondary-background);
+                    border-radius: calc(var(--padding-small) / 4);
+                }
+            }
+
+            input {
+                width: 100%;
+            }
+
+            div:nth-of-type(4) input{
+                max-width: calc(var(--padding-large) * 1.5);
+                text-align: end;
+            }
+
+            div:nth-of-type(5) input {
+                max-width: calc(var(--padding-large) * 6);
+            }
+
+            button {
+                font-size: var(--font-size-medium);
+                max-width: min-content;
+                padding-left: var(--padding-small);
+                padding-right: var(--padding-small);
+                margin-left: var(--padding-large);
+            }
+        }
+    }
+}
+
+
+@media (min-width: 1025px) {
+    main {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+
+        column-gap: var(--padding-large);
+
+        img{
+            grid-column: 2;
+            grid-row: 1 / span 2;
+
+            aspect-ratio: 16 / 9;
+        }
+
+        section{
+            grid-column: 1;
+        }
+
+        fieldset form div:not(:nth-of-type(6)) {
+            flex-direction: row;
+            
+        }
+        
+        fieldset form div:not(:nth-of-type(6)) label{
+            width: calc(var(--padding-large) * 5);
+        }
+    }
+}
